@@ -1,12 +1,14 @@
 !!!5
-
 %head
   %meta{ :charset => "utf-8" }/
   %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
   %title= data.page.title || "Angular-Start"
+  / Stylesheet
   = stylesheet_link_tag "application"
+  / Javascript
+  = javascript_include_tag "application"
 
-%body
+%body{:'ng-app' => 'phoneApp'}
   / nav
   = partial "layouts/nav"
 
@@ -15,5 +17,3 @@
   / footer
   = partial "layouts/footer"
 
-  / Javascript
-  = javascript_include_tag "application"

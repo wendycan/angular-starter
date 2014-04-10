@@ -1,5 +1,9 @@
 ---
 title: Welcome to Middleman
 ---
-
-%h1= "hello"
+.ng-list{:'ng-controller' => "PhoneListCtrl"}
+  .row
+    %ul
+      %li{:'ng-repeat' => "phone in phones"}
+        {{phone.name}}
+        %p {{phone.snippet}}
