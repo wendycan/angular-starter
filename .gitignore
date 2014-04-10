@@ -21,3 +21,6 @@
 /vendor/ruby
 /vendor/assets/components
 !/vendor/assets/components/.keep
+
+# Ignore npm install
+/.node_modules
