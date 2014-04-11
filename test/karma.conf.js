@@ -15,7 +15,16 @@ module.exports = function(config){
 
     frameworks: ['jasmine'],
 
-    preprocessors: {'**/*.coffee': 'coffee'},
+    reporters: ['progress', 'coverage'],
+
+    preprocessors: {
+      // these files will be instrumented by Istanbul
+      'source/javascripts/*.js.coffee': ['coverage'],
+
+      // JavaScript via coverage preprocessor
+      // limit the CoffeeScript preprocessor to uncovered files
+      'test/unit/**/*.coffee': ['coffee']
+    },
 
     browsers : ['Chrome'],
 
@@ -23,12 +32,18 @@ module.exports = function(config){
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-jasmine',
+            "karma-coverage",
             "karma-coffee-preprocessor"
             ],
 
     junitReporter : {
       outputFile: 'test_out/unit.xml',
       suite: 'unit'
+    },
+
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
     }
 
   });

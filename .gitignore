@@ -26,4 +26,7 @@
 !/vendor/assets/components/.keep
 
 # Ignore npm install
-/.node_modules
+/node_modules
+
+# Ignore test coverage
+/coverage
