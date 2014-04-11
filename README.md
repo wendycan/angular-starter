@@ -15,7 +15,7 @@ Change directories into your new project and start the preview server:
 ##Start test
 ### Running Unit Tests
 These are written in
-[Jasmine][jasmine], which we run with the [Karma Test Runner][karma]. We provide a Karma configuration file to run them.
+[Jasmine](https://github.com/pivotal/jasmine.git), which we run with the [Karma Test Runner](https://github.com/karma-runner/karma). We provide a Karma configuration file to run them.
 
     npm test
 To do a single run of the tests and then exit.
@@ -25,3 +25,5 @@ To do a single run of the tests and then exit.
 
     npm run update-webdriver
     npm run protractor
+If you get failure, you can refer to this wiki:<br>
+[failure to run protractor](https://github.com/wendycan/angular-starter/wiki/Error-to-run-protractor)
