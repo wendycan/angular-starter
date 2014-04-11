@@ -1,12 +1,13 @@
 ---
 title: Welcome to Middleman
 ---
-.ng-list{:'ng-controller' => "PhoneListCtrl"}
+.ng-list
   .row
     .large-2.columns
       Search:
       %input{:'ng-model' => 'query'}
     .large-9.columns.large-offset1
+      %p#status Current filter: {{query}}
       %ul
         %li{:'ng-repeat' => "phone in phones | filter:query"}
           {{phone.name}}
