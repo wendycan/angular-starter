@@ -8,9 +8,14 @@ phoneApp.controller 'PhoneListCtrl', ($scope)->
       'age': 1
     },
     {
-      'name': 'Motorola',
+      'name': 'Motorola with wi-fi',
       'snippet': 'The Next, Next Generation tablet.',
       'age': 2
+    },
+    {
+      'name': 'MOTOROla',
+      'snippet': 'The Next, Next Generation tablet.',
+      'age': 3
     }
   ]
   $scope.orderProp = 'age'

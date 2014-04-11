@@ -16,5 +16,5 @@ title: Welcome to Middleman
       %p#status Current filter: {{query}}
       %ul
         %li{:'ng-repeat' => "phone in phones | filter:query | orderBy:orderProp"}
-          {{phone.name}}
+          %p {{phone.name}}
           %p {{phone.snippet}}
