@@ -8,7 +8,7 @@
 /.bundle
 
 # Ignore npm log
-/.npm-debug.log
+/npm-debug.log
 
 # Ignore the build directory
 /build

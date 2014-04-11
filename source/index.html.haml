@@ -3,7 +3,11 @@ title: Welcome to Middleman
 ---
 .ng-list{:'ng-controller' => "PhoneListCtrl"}
   .row
-    %ul
-      %li{:'ng-repeat' => "phone in phones"}
-        {{phone.name}}
-        %p {{phone.snippet}}
+    .large-2.columns
+      Search:
+      %input{:'ng-model' => 'query'}
+    .large-9.columns.large-offset1
+      %ul
+        %li{:'ng-repeat' => "phone in phones | filter:query"}
+          {{phone.name}}
+          %p {{phone.snippet}}

@@ -23,7 +23,7 @@ module.exports = function(config){
 
       // JavaScript via coverage preprocessor
       // limit the CoffeeScript preprocessor to uncovered files
-      'test/unit/**/*.coffee': ['coffee']
+      'test/unit/*.js.coffee': ['coffee']
     },
 
     browsers : ['Chrome'],
