@@ -8,36 +8,44 @@ describe 'Phone App', ->
       phoneList = element.all(By.repeater('phone in phones'))
       query = element By.model('query')
 
-      expect(phoneList.count()).toBe(3)
+      expect(phoneList.count()).toBe 20
 
       query.sendKeys 'nexus'
       expect(phoneList.count()).toBe(1)
 
-    it 'should diplay the current filter value within an element with id "status"', ->
-      statusElement = element By.id 'status'
+    it 'should render phone specific links', ->
+      query = element By.model 'query'
+      query.sendKeys 'nexus'
 
-      expect(statusElement.getText()).toMatch /Current filter:\s*$/
+      element(By.css('.phones li a')).click()
+      browser.getLocationAbsUrl().then (url)->
+        expect(url.split('#')[1]).toBe '/phones/nexus-s'
 
-      element(By.model('query')).sendKeys 'nexus'
-      expect(statusElement.getText()).toMatch /Current filter: nexus\s*$/
+    # it 'should diplay the current filter value within an element with id "status"', ->
+    #   statusElement = element By.id 'status'
 
-      # expect(element(By.binding('query')).getText()).toMatch /Current filter: nexus\s*$/
+    #   expect(statusElement.getText()).toMatch /Current filter:\s*$/
 
-    it 'should bo possible to control phone order via the drop down select box', ->
-      phoneNameColumn = element.all By.repeater('phone in phones').column('{{phone.name}}')
-      query = element By.model('query')
-      getNames = ->
-        phoneNameColumn.map (elm)->
-          elm.getText()
+    #   element(By.model('query')).sendKeys 'nexus'
+    #   expect(statusElement.getText()).toMatch /Current filter: nexus\s*$/
 
-      query.sendKeys 'tablet'
-      expect(getNames()).toEqual([
-        "Motorola with wi-fi",
-        "MOTOROla"
-      ])
+    #   # expect(element(By.binding('query')).getText()).toMatch /Current filter: nexus\s*$/
 
-      element(By.model('orderProp')).findElement(By.css('option[value="name"]')).click()
-      expect(getNames()).toEqual([
-        "MOTOROla",
-        "Motorola with wi-fi"
-      ])
+    # it 'should bo possible to control phone order via the drop down select box', ->
+    #   phoneNameColumn = element.all By.repeater('phone in phones').column('{{phone.name}}')
+    #   query = element By.model('query')
+    #   getNames = ->
+    #     phoneNameColumn.map (elm)->
+    #       elm.getText()
+
+    #   query.sendKeys 'tablet'
+    #   expect(getNames()).toEqual([
+    #     "Motorola with wi-fi",
+    #     "MOTOROla"
+    #   ])
+
+    #   element(By.model('orderProp')).findElement(By.css('option[value="name"]')).click()
+    #   expect(getNames()).toEqual([
+    #     "MOTOROla",
+    #     "Motorola with wi-fi"
+    #   ])

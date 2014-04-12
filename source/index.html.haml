@@ -1,28 +1,4 @@
 ---
 title: Welcome to Middleman
 ---
-
-.ng-list
-  .row
-    .large-4.columns
-      %label Search:
-      %input{:'ng-model' => 'query', :type => 'text'}
-    .large-4.columns
-      %label Sort by:
-      %select{:'ng-model' => 'orderProp'}
-        %option{:'value' => 'name'} Alphabatical
-        %option{:'value' => 'age'} Newest
-    .large-4.columns
-  .row
-    .large-12.columns.large-offset1
-      %p#status Current filter: {{query}}
-      %ul
-        %li{:'ng-repeat' => "phone in phones | filter:query | orderBy:orderProp"}
-          .row
-            .large-4.columns
-              %a{:href => "#/phones/{{phone.id}}"}
-                %img{'ng-src' => '{{phone.imageUrl}}'}
-            .large-8.columns
-              %a{:href => "#/phones/{{phone.id}}"} {{phone.name}}
-              %p {{phone.snippet}}
-
+.view{:'ng-view' => true}
